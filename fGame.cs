@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
+
 namespace MusicQuiz
 {
     public partial class fGame : Form
@@ -17,7 +18,7 @@ namespace MusicQuiz
         Random random = new Random();
         int musicDuration;
         SoundPlayer sp;
-        bool[] players = new bool[3];
+        bool[] players = new bool[3];        
         
         public fGame()
         {
@@ -30,7 +31,8 @@ namespace MusicQuiz
                 GameEnd();
             int i = random.Next(0, Quiz.list.Count);
             wmp.URL = Quiz.list[i];
-            Quiz.answer = Path.GetFileNameWithoutExtension(wmp.URL);
+            Quiz.answer = Path.GetFileNameWithoutExtension(wmp.URL);//
+
             //wmp.Ctlcontrols.play();
             Quiz.list.RemoveAt(i);
             lblMelodyCount.Text = Quiz.list.Count.ToString();

@@ -16,7 +16,7 @@ namespace MusicQuiz
         public static bool randomStart = false;
         public static string lastFolder;
         public static bool allDirectories = false;
-        public static string answer;
+        public static string answer;//
 
         public static void ReadMusic()
         {
