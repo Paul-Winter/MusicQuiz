@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,7 @@ namespace MusicQuiz
     {
         Random random = new Random();
         int musicDuration;
+        SoundPlayer sp;
         
         public fGame()
         {
@@ -53,6 +55,8 @@ namespace MusicQuiz
             progressBar.Value = 0;
             progressBar.Minimum = 0;
             progressBar.Maximum = Quiz.gameDuration;
+            //SoundPlayer sp = new SoundPlayer(Properties.Resources.MusixQuiz);
+            //sp.PlaySync();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -114,6 +118,8 @@ namespace MusicQuiz
                 case Keys.Z:
                     {
                         GamePause();
+                        sp = new SoundPlayer(Properties.Resources.ButtonPress);
+                        sp.PlaySync();
                         fMessage fm = new fMessage();
                         fm.lblMessagePlayer.Text = lblPlayer1.Text;
                         if (fm.ShowDialog() == DialogResult.Yes)
@@ -125,6 +131,8 @@ namespace MusicQuiz
                 case Keys.N:
                     {
                         GamePause();
+                        sp = new SoundPlayer(Properties.Resources.ButtonPress);
+                        sp.PlaySync();
                         fMessage fm = new fMessage();
                         fm.lblMessagePlayer.Text = lblPlayer2.Text;
                         if (fm.ShowDialog() == DialogResult.Yes)
@@ -136,6 +144,8 @@ namespace MusicQuiz
                 case Keys.O:
                     {
                         GamePause();
+                        sp = new SoundPlayer(Properties.Resources.ButtonPress);
+                        sp.PlaySync();
                         fMessage fm = new fMessage();
                         fm.lblMessagePlayer.Text = lblPlayer3.Text;
                         if (fm.ShowDialog() == DialogResult.Yes)
