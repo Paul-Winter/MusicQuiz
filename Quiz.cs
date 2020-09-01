@@ -11,7 +11,7 @@ namespace MusicQuiz
     static class Quiz
     {
         public static List<string> list = new List<string>();
-        public static int gameDuration = 60;
+        public static int gameDuration = 30;
         public static int musicDuration = 10;
         public static bool randomStart = false;
         public static string lastFolder = "";

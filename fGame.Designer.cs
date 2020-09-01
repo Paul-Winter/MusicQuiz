@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fGame));
             this.wmp = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnNext = new System.Windows.Forms.Button();
@@ -39,6 +40,10 @@
             this.lblFirstPlayer = new System.Windows.Forms.Label();
             this.lblSecondPlayer = new System.Windows.Forms.Label();
             this.lblThirdPlayer = new System.Windows.Forms.Label();
+            this.lblMelodyCount = new System.Windows.Forms.Label();
+            this.lblCounter = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.wmp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +77,7 @@
             this.btnPause.TabIndex = 2;
             this.btnPause.Text = "Пауза";
             this.btnPause.UseVisualStyleBackColor = true;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
             // btnContinue
             // 
@@ -82,6 +88,7 @@
             this.btnContinue.TabIndex = 3;
             this.btnContinue.Text = "Продолжить";
             this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // lblPlayer1
             // 
@@ -143,12 +150,51 @@
             this.lblThirdPlayer.TabIndex = 9;
             this.lblThirdPlayer.Text = "0";
             // 
+            // lblMelodyCount
+            // 
+            this.lblMelodyCount.AutoSize = true;
+            this.lblMelodyCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMelodyCount.Location = new System.Drawing.Point(266, 131);
+            this.lblMelodyCount.Name = "lblMelodyCount";
+            this.lblMelodyCount.Size = new System.Drawing.Size(27, 29);
+            this.lblMelodyCount.TabIndex = 10;
+            this.lblMelodyCount.Text = "0";
+            // 
+            // lblCounter
+            // 
+            this.lblCounter.AutoSize = true;
+            this.lblCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblCounter.Location = new System.Drawing.Point(13, 135);
+            this.lblCounter.Name = "lblCounter";
+            this.lblCounter.Size = new System.Drawing.Size(203, 24);
+            this.lblCounter.TabIndex = 11;
+            this.lblCounter.Text = "Осталось мелодий:";
+            // 
+            // progressBar
+            // 
+            this.progressBar.BackColor = System.Drawing.SystemColors.Control;
+            this.progressBar.ForeColor = System.Drawing.SystemColors.Control;
+            this.progressBar.Location = new System.Drawing.Point(12, 194);
+            this.progressBar.MarqueeAnimationSpeed = 200;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(340, 40);
+            this.progressBar.TabIndex = 12;
+            this.progressBar.Value = 50;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // fGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(364, 382);
+            this.Controls.Add(this.progressBar);
+            this.Controls.Add(this.lblCounter);
+            this.Controls.Add(this.lblMelodyCount);
             this.Controls.Add(this.lblThirdPlayer);
             this.Controls.Add(this.lblSecondPlayer);
             this.Controls.Add(this.lblFirstPlayer);
@@ -165,6 +211,7 @@
             this.Name = "fGame";
             this.Text = "Угадай мелодию!";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fGame_FormClosed);
+            this.Load += new System.EventHandler(this.fGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.wmp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,5 +230,9 @@
         private System.Windows.Forms.Label lblFirstPlayer;
         private System.Windows.Forms.Label lblSecondPlayer;
         private System.Windows.Forms.Label lblThirdPlayer;
+        private System.Windows.Forms.Label lblMelodyCount;
+        private System.Windows.Forms.Label lblCounter;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Timer timer1;
     }
 }
