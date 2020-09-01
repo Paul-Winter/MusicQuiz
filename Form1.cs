@@ -34,5 +34,11 @@ namespace MusicQuiz
         {
             fGame.ShowDialog();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            Quiz.ReadParam();
+            Quiz.ReadMusic();
+        }
     }
 }

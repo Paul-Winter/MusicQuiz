@@ -81,6 +81,7 @@
             this.MinimumSize = new System.Drawing.Size(380, 420);
             this.Name = "MainForm";
             this.Text = " Угадай мелодию!";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }
