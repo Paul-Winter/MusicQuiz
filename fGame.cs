@@ -8,6 +8,7 @@ using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MusicQuiz
 {
@@ -29,6 +30,7 @@ namespace MusicQuiz
                 GameEnd();
             int i = random.Next(0, Quiz.list.Count);
             wmp.URL = Quiz.list[i];
+            Quiz.answer = Path.GetFileNameWithoutExtension(wmp.URL);
             //wmp.Ctlcontrols.play();
             Quiz.list.RemoveAt(i);
             lblMelodyCount.Text = Quiz.list.Count.ToString();
@@ -177,6 +179,30 @@ namespace MusicQuiz
             if (Quiz.randomStart)
                 if (wmp.openState == WMPLib.WMPOpenState.wmposMediaOpen)
                     wmp.Ctlcontrols.currentPosition = random.Next(0, (int)(wmp.currentMedia.duration) / 2);
+        }
+
+        private void lblFirstPlayer_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                lblFirstPlayer.Text = (Convert.ToInt32(lblFirstPlayer.Text) + 1).ToString();
+            if (e.Button == MouseButtons.Right)
+                lblFirstPlayer.Text = (Convert.ToInt32(lblFirstPlayer.Text) - 1).ToString();
+        }
+
+        private void lblSecondPlayer_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                lblSecondPlayer.Text = (Convert.ToInt32(lblSecondPlayer.Text) + 1).ToString();
+            if (e.Button == MouseButtons.Right)
+                lblSecondPlayer.Text = (Convert.ToInt32(lblSecondPlayer.Text) - 1).ToString();
+        }
+
+        private void lblThirdPlayer_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+                lblThirdPlayer.Text = (Convert.ToInt32(lblThirdPlayer.Text) + 1).ToString();
+            if (e.Button == MouseButtons.Right)
+                lblThirdPlayer.Text = (Convert.ToInt32(lblThirdPlayer.Text) - 1).ToString();
         }
     }
 }

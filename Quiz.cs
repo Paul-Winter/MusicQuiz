@@ -14,8 +14,9 @@ namespace MusicQuiz
         public static int gameDuration = 30;
         public static int musicDuration = 10;
         public static bool randomStart = false;
-        public static string lastFolder = "";
+        public static string lastFolder;
         public static bool allDirectories = false;
+        public static string answer;
 
         public static void ReadMusic()
         {

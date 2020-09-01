@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fGame));
-            this.wmp = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnNext = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnContinue = new System.Windows.Forms.Button();
@@ -46,19 +45,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
+            this.wmp = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.wmp)).BeginInit();
             this.SuspendLayout();
-            // 
-            // wmp
-            // 
-            this.wmp.Enabled = true;
-            this.wmp.Location = new System.Drawing.Point(2, 363);
-            this.wmp.Name = "wmp";
-            this.wmp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmp.OcxState")));
-            this.wmp.Size = new System.Drawing.Size(211, 45);
-            this.wmp.TabIndex = 0;
-            this.wmp.Visible = false;
-            this.wmp.OpenStateChange += new AxWMPLib._WMPOCXEvents_OpenStateChangeEventHandler(this.wmp_OpenStateChange);
             // 
             // btnNext
             // 
@@ -132,6 +121,7 @@
             this.lblFirstPlayer.Size = new System.Drawing.Size(21, 24);
             this.lblFirstPlayer.TabIndex = 7;
             this.lblFirstPlayer.Text = "0";
+            this.lblFirstPlayer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblFirstPlayer_MouseClick);
             // 
             // lblSecondPlayer
             // 
@@ -142,6 +132,7 @@
             this.lblSecondPlayer.Size = new System.Drawing.Size(21, 24);
             this.lblSecondPlayer.TabIndex = 8;
             this.lblSecondPlayer.Text = "0";
+            this.lblSecondPlayer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblSecondPlayer_MouseClick);
             // 
             // lblThirdPlayer
             // 
@@ -152,6 +143,7 @@
             this.lblThirdPlayer.Size = new System.Drawing.Size(21, 24);
             this.lblThirdPlayer.TabIndex = 9;
             this.lblThirdPlayer.Text = "0";
+            this.lblThirdPlayer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblThirdPlayer_MouseClick);
             // 
             // lblMelodyCount
             // 
@@ -208,6 +200,17 @@
             this.lblTimer.Size = new System.Drawing.Size(27, 29);
             this.lblTimer.TabIndex = 14;
             this.lblTimer.Text = "0";
+            // 
+            // wmp
+            // 
+            this.wmp.Enabled = true;
+            this.wmp.Location = new System.Drawing.Point(2, 363);
+            this.wmp.Name = "wmp";
+            this.wmp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("wmp.OcxState")));
+            this.wmp.Size = new System.Drawing.Size(211, 45);
+            this.wmp.TabIndex = 0;
+            this.wmp.Visible = false;
+            this.wmp.OpenStateChange += new AxWMPLib._WMPOCXEvents_OpenStateChangeEventHandler(this.wmp_OpenStateChange);
             // 
             // fGame
             // 
