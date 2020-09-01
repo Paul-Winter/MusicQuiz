@@ -44,6 +44,8 @@
             this.lblCounter = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTimer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.wmp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -154,7 +156,7 @@
             // 
             this.lblMelodyCount.AutoSize = true;
             this.lblMelodyCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblMelodyCount.Location = new System.Drawing.Point(266, 131);
+            this.lblMelodyCount.Location = new System.Drawing.Point(241, 111);
             this.lblMelodyCount.Name = "lblMelodyCount";
             this.lblMelodyCount.Size = new System.Drawing.Size(27, 29);
             this.lblMelodyCount.TabIndex = 10;
@@ -164,7 +166,7 @@
             // 
             this.lblCounter.AutoSize = true;
             this.lblCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblCounter.Location = new System.Drawing.Point(13, 135);
+            this.lblCounter.Location = new System.Drawing.Point(15, 115);
             this.lblCounter.Name = "lblCounter";
             this.lblCounter.Size = new System.Drawing.Size(203, 24);
             this.lblCounter.TabIndex = 11;
@@ -174,10 +176,10 @@
             // 
             this.progressBar.BackColor = System.Drawing.SystemColors.Control;
             this.progressBar.ForeColor = System.Drawing.SystemColors.Control;
-            this.progressBar.Location = new System.Drawing.Point(12, 194);
+            this.progressBar.Location = new System.Drawing.Point(17, 220);
             this.progressBar.MarqueeAnimationSpeed = 200;
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(340, 40);
+            this.progressBar.Size = new System.Drawing.Size(340, 28);
             this.progressBar.TabIndex = 12;
             this.progressBar.Value = 50;
             // 
@@ -186,12 +188,34 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(15, 155);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(203, 24);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Осталось времени:";
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblTimer.Location = new System.Drawing.Point(241, 151);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(27, 29);
+            this.lblTimer.TabIndex = 14;
+            this.lblTimer.Text = "0";
+            // 
             // fGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(364, 382);
+            this.Controls.Add(this.lblTimer);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.lblCounter);
             this.Controls.Add(this.lblMelodyCount);
@@ -206,12 +230,14 @@
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.wmp);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximumSize = new System.Drawing.Size(380, 420);
             this.MinimumSize = new System.Drawing.Size(380, 420);
             this.Name = "fGame";
             this.Text = "Угадай мелодию!";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fGame_FormClosed);
             this.Load += new System.EventHandler(this.fGame_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fGame_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.wmp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -234,5 +260,7 @@
         private System.Windows.Forms.Label lblCounter;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTimer;
     }
 }
