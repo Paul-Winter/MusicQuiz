@@ -16,6 +16,7 @@ namespace MusicQuiz
         Random random = new Random();
         int musicDuration;
         SoundPlayer sp;
+        bool[] players = new bool[3];
         
         public fGame()
         {
@@ -31,6 +32,8 @@ namespace MusicQuiz
             //wmp.Ctlcontrols.play();
             Quiz.list.RemoveAt(i);
             lblMelodyCount.Text = Quiz.list.Count.ToString();
+            for (int j = 0; j < players.Length; j++)
+                players[j] = false;
         }
 
         private void btnNext_Click(object sender, EventArgs e)
@@ -54,7 +57,7 @@ namespace MusicQuiz
             lblTimer.Text = musicDuration.ToString();
             progressBar.Value = 0;
             progressBar.Minimum = 0;
-            progressBar.Maximum = Quiz.gameDuration;
+            progressBar.Maximum = Quiz.musicDuration;
             //SoundPlayer sp = new SoundPlayer(Properties.Resources.MusixQuiz);
             //sp.PlaySync();
         }
@@ -111,46 +114,60 @@ namespace MusicQuiz
             //    }
             //    GamePlay();
             //}
+            if (!timer1.Enabled)
+                return;
             switch (e.KeyData)
             {
                 case Keys.A:
                 case Keys.Q:
                 case Keys.Z:
                     {
-                        GamePause();
-                        sp = new SoundPlayer(Properties.Resources.ButtonPress);
-                        sp.PlaySync();
-                        fMessage fm = new fMessage();
-                        fm.lblMessagePlayer.Text = lblPlayer1.Text;
-                        if (fm.ShowDialog() == DialogResult.Yes)
-                            lblFirstPlayer.Text = (Convert.ToInt32(lblFirstPlayer.Text) + 1).ToString();
-                        GamePlay();
+                        if (!players[0])
+                        {
+                            GamePause();
+                            sp = new SoundPlayer(Properties.Resources.ButtonPress);
+                            sp.PlaySync();
+                            players[0] = true;
+                            fMessage fm = new fMessage();
+                            fm.lblMessagePlayer.Text = lblPlayer1.Text;
+                            if (fm.ShowDialog() == DialogResult.Yes)
+                                lblFirstPlayer.Text = (Convert.ToInt32(lblFirstPlayer.Text) + 1).ToString();
+                            GamePlay();
+                        }
                     } break;
                 case Keys.B:
                 case Keys.V:
                 case Keys.N:
                     {
-                        GamePause();
-                        sp = new SoundPlayer(Properties.Resources.ButtonPress);
-                        sp.PlaySync();
-                        fMessage fm = new fMessage();
-                        fm.lblMessagePlayer.Text = lblPlayer2.Text;
-                        if (fm.ShowDialog() == DialogResult.Yes)
-                            lblSecondPlayer.Text = (Convert.ToInt32(lblSecondPlayer.Text) + 1).ToString();
-                        GamePlay();
+                        if (!players[1])
+                        {
+                            GamePause();
+                            sp = new SoundPlayer(Properties.Resources.ButtonPress);
+                            sp.PlaySync();
+                            players[1] = true;
+                            fMessage fm = new fMessage();
+                            fm.lblMessagePlayer.Text = lblPlayer2.Text;
+                            if (fm.ShowDialog() == DialogResult.Yes)
+                                lblSecondPlayer.Text = (Convert.ToInt32(lblSecondPlayer.Text) + 1).ToString();
+                            GamePlay();
+                        }
                     } break;
                 case Keys.P:
                 case Keys.L:
                 case Keys.O:
                     {
-                        GamePause();
-                        sp = new SoundPlayer(Properties.Resources.ButtonPress);
-                        sp.PlaySync();
-                        fMessage fm = new fMessage();
-                        fm.lblMessagePlayer.Text = lblPlayer3.Text;
-                        if (fm.ShowDialog() == DialogResult.Yes)
-                            lblThirdPlayer.Text = (Convert.ToInt32(lblThirdPlayer.Text) + 1).ToString();
-                        GamePlay();
+                        if (!players[2])
+                        {
+                            GamePause();
+                            sp = new SoundPlayer(Properties.Resources.ButtonPress);
+                            sp.PlaySync();
+                            players[2] = true;
+                            fMessage fm = new fMessage();
+                            fm.lblMessagePlayer.Text = lblPlayer3.Text;
+                            if (fm.ShowDialog() == DialogResult.Yes)
+                                lblThirdPlayer.Text = (Convert.ToInt32(lblThirdPlayer.Text) + 1).ToString();
+                            GamePlay();
+                        }
                     } break;
             }
         }
