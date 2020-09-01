@@ -58,6 +58,7 @@
             this.wmp.Size = new System.Drawing.Size(211, 45);
             this.wmp.TabIndex = 0;
             this.wmp.Visible = false;
+            this.wmp.OpenStateChange += new AxWMPLib._WMPOCXEvents_OpenStateChangeEventHandler(this.wmp_OpenStateChange);
             // 
             // btnNext
             // 
@@ -250,9 +251,6 @@
         private System.Windows.Forms.Button btnNext;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.Button btnContinue;
-        private System.Windows.Forms.Label lblPlayer1;
-        private System.Windows.Forms.Label lblPlayer2;
-        private System.Windows.Forms.Label lblPlayer3;
         private System.Windows.Forms.Label lblFirstPlayer;
         private System.Windows.Forms.Label lblSecondPlayer;
         private System.Windows.Forms.Label lblThirdPlayer;
@@ -262,5 +260,8 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTimer;
+        public System.Windows.Forms.Label lblPlayer1;
+        public System.Windows.Forms.Label lblPlayer2;
+        public System.Windows.Forms.Label lblPlayer3;
     }
 }

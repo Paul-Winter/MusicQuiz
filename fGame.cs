@@ -13,7 +13,7 @@ namespace MusicQuiz
     public partial class fGame : Form
     {
         Random random = new Random();
-        int musicDuration = Quiz.musicDuration;
+        int musicDuration;
         
         public fGame()
         {
@@ -33,6 +33,7 @@ namespace MusicQuiz
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            musicDuration = Quiz.musicDuration;
             progressBar.Value = 0;
             progressBar.Minimum = 0;
             timer1.Start();
@@ -113,7 +114,9 @@ namespace MusicQuiz
                 case Keys.Z:
                     {
                         GamePause();
-                        if (MessageBox.Show("Правильный ответ?", "Игрок 1", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        fMessage fm = new fMessage();
+                        fm.lblMessagePlayer.Text = lblPlayer1.Text;
+                        if (fm.ShowDialog() == DialogResult.Yes)
                             lblFirstPlayer.Text = (Convert.ToInt32(lblFirstPlayer.Text) + 1).ToString();
                         GamePlay();
                     } break;
@@ -122,7 +125,9 @@ namespace MusicQuiz
                 case Keys.N:
                     {
                         GamePause();
-                        if (MessageBox.Show("Правильный ответ?", "Игрок 2", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        fMessage fm = new fMessage();
+                        fm.lblMessagePlayer.Text = lblPlayer2.Text;
+                        if (fm.ShowDialog() == DialogResult.Yes)
                             lblSecondPlayer.Text = (Convert.ToInt32(lblSecondPlayer.Text) + 1).ToString();
                         GamePlay();
                     } break;
@@ -131,11 +136,20 @@ namespace MusicQuiz
                 case Keys.O:
                     {
                         GamePause();
-                        if (MessageBox.Show("Правильный ответ?", "Игрок 3", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        fMessage fm = new fMessage();
+                        fm.lblMessagePlayer.Text = lblPlayer3.Text;
+                        if (fm.ShowDialog() == DialogResult.Yes)
                             lblThirdPlayer.Text = (Convert.ToInt32(lblThirdPlayer.Text) + 1).ToString();
                         GamePlay();
                     } break;
             }
+        }
+
+        private void wmp_OpenStateChange(object sender, AxWMPLib._WMPOCXEvents_OpenStateChangeEvent e)
+        {
+            if (Quiz.randomStart)
+                if (wmp.openState == WMPLib.WMPOpenState.wmposMediaOpen)
+                    wmp.Ctlcontrols.currentPosition = random.Next(0, (int)(wmp.currentMedia.duration) / 2);
         }
     }
 }
