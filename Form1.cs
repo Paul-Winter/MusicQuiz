@@ -13,6 +13,7 @@ namespace MusicQuiz
     public partial class MainForm : Form
     {
         fParams fParams = new fParams();
+        fGame fGame = new fGame();
 
         public MainForm()
         {
@@ -27,6 +28,11 @@ namespace MusicQuiz
         private void btnParams_Click(object sender, EventArgs e)
         {
             fParams.ShowDialog();
+        }
+
+        private void btnGame_Click(object sender, EventArgs e)
+        {
+            fGame.ShowDialog();
         }
     }
 }

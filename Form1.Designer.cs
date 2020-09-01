@@ -36,18 +36,21 @@
             // 
             // btnGame
             // 
-            this.btnGame.Location = new System.Drawing.Point(110, 43);
+            this.btnGame.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnGame.Location = new System.Drawing.Point(82, 49);
             this.btnGame.Name = "btnGame";
-            this.btnGame.Size = new System.Drawing.Size(151, 55);
+            this.btnGame.Size = new System.Drawing.Size(208, 55);
             this.btnGame.TabIndex = 0;
             this.btnGame.Text = "ИГРА";
             this.btnGame.UseVisualStyleBackColor = true;
+            this.btnGame.Click += new System.EventHandler(this.btnGame_Click);
             // 
             // btnParams
             // 
-            this.btnParams.Location = new System.Drawing.Point(110, 161);
+            this.btnParams.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnParams.Location = new System.Drawing.Point(82, 167);
             this.btnParams.Name = "btnParams";
-            this.btnParams.Size = new System.Drawing.Size(151, 55);
+            this.btnParams.Size = new System.Drawing.Size(208, 55);
             this.btnParams.TabIndex = 1;
             this.btnParams.Text = "НАСТРОЙКИ";
             this.btnParams.UseVisualStyleBackColor = true;
@@ -55,9 +58,10 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(110, 274);
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnExit.Location = new System.Drawing.Point(82, 280);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(151, 55);
+            this.btnExit.Size = new System.Drawing.Size(208, 55);
             this.btnExit.TabIndex = 2;
             this.btnExit.Text = "ВЫХОД";
             this.btnExit.UseVisualStyleBackColor = true;
