@@ -12,6 +12,8 @@ namespace MusicQuiz
 {
     public partial class MainForm : Form
     {
+        fParams fParams = new fParams();
+
         public MainForm()
         {
             InitializeComponent();
@@ -20,6 +22,11 @@ namespace MusicQuiz
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnParams_Click(object sender, EventArgs e)
+        {
+            fParams.ShowDialog();
         }
     }
 }
